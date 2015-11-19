@@ -24,7 +24,6 @@ public class Settings implements Serializable {
     }
 
     public Settings(SettingsDialog dialog) {
-        appKey = dialog.getAppKey();
         cityID = dialog.getCityID();
 
         updTime = dialog.getUpdTime();

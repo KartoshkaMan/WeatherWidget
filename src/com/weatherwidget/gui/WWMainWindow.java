@@ -24,7 +24,7 @@ public class WWMainWindow extends WWAbstractFrame implements Observer {
     private CloseButton closeButton;
     private RefreshButton refreshButton;
     private SettingsButton settingsButton;
-    
+
     public WWMainWindow(WeatherUpdater updater) {
         SystemBtnListener btnListener = new SystemBtnListener();
         Weather weather = Weather.loadWeather();

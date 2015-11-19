@@ -11,13 +11,11 @@ import java.awt.*;
 
 public class SettingsDialog extends WWAbstractFrame {
 
-    private JTextField appKeyField;
     private JTextField cityIDField;
     private JTextField periodField;
     private JTextField recallPeriodField;
 
     public SettingsDialog(WeatherUpdater updater) {
-        appKeyField = new JTextField(updater.getAppKey());
         cityIDField = new JTextField(updater.getCityID());
         periodField = new JTextField("" + updater.getUpdTime());
         recallPeriodField = new JTextField("" + updater.getRclTime());
@@ -27,7 +25,6 @@ public class SettingsDialog extends WWAbstractFrame {
         approveBtn = new ApproveButton(this, updater);
         rejectBtn = new RejectButton(this);
 
-        appKeyField.setEditable(false);
         cityIDField.setEditable(false);
 
         SystemBtnListener listener = new SystemBtnListener();
@@ -45,7 +42,6 @@ public class SettingsDialog extends WWAbstractFrame {
         JPanel fieldPanel = new JPanel();
         fieldPanel.setLayout(new BoxLayout(fieldPanel, BoxLayout.PAGE_AXIS));
         fieldPanel.setBackground(Color.WHITE);
-        fieldPanel.add(appKeyField);
         fieldPanel.add(cityIDField);
         fieldPanel.add(periodField);
         fieldPanel.add(recallPeriodField);
@@ -88,9 +84,6 @@ public class SettingsDialog extends WWAbstractFrame {
         return (Integer.parseInt(this.periodField.getText()) > 0 && Integer.parseInt(this.recallPeriodField.getText()) > 0);
     }
 
-    public String getAppKey() {
-        return this.appKeyField.getText();
-    }
     public String getCityID() {
         return this.cityIDField.getText();
     }

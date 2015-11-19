@@ -29,20 +29,8 @@ public class WWAbstractFrame extends JFrame {
 
         @Override
         public void mouseDragged(MouseEvent e) {
-
-            Point point = new Point(e.getXOnScreen() - mouseLocation.x, e.getYOnScreen() - mouseLocation.y);
-
-            int height = frame.getHeight();
-            int width = frame.getWidth();
-
-            Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-            if (point.x > 0 && point.x < (screenSize.width - width)) {
-                frame.setLocation(point.x, frame.getY());
-            }
-            if ( point.y > 0 && point.y < (screenSize.height - height)) {
-                frame.setLocation(frame.getX(), point.y);
-            }
+            Point newPos = new Point(e.getXOnScreen() - mouseLocation.x, e.getYOnScreen() - mouseLocation.y);
+            frame.setLocation(newPos);
         }
 
         @Override
